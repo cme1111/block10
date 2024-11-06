@@ -35,40 +35,48 @@ body {
 .art-piece {
   width: 100%;
   aspect-ratio: 16 / 9;
+  position: relative;
+  background-color: white;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: white;
 }
 
 .grid-row {
+  position: relative;
+  width: 100%;
+  flex: 1;
   display: flex;
-  flex: 1;
 }
 
-.grid-cell {
-  flex: 1;
-  position: relative;
+.grid-row:nth-child(1) {
+  padding-right: 0;
+  margin-bottom: 2%;
 }
 
-.top-row {
-  padding-bottom: 0.5rem;
-}
-
-.top-row .grid-cell {
+.grid-row:nth-child(1) .grid-cell {
   background-color: #009688;
 }
 
-.top-row .grid-cell:not(:last-child),
-.grid-row:last-child .grid-cell:not(:last-child) {
-  margin-right: 0.5rem;
+.grid-row:nth-child(1) .grid-cell:nth-child(1),
+.grid-row:nth-child(1) .grid-cell:nth-child(2) {
+  margin-right: 2%;
 }
 
-.grid-row:nth-child(2) {
-  background-color: #009688;
+.grid-row:nth-child(1) .grid-cell:nth-child(1) {
+  width: 32%;
 }
 
+.grid-row:nth-child(1) .grid-cell:nth-child(2) {
+  width: 32%;
+}
+
+.grid-row:nth-child(1) .grid-cell:nth-child(3) {
+  flex-grow: 1;
+}
+
+.grid-row:nth-child(2),
 .grid-row:nth-child(3) {
-  position: relative;
   background-color: #009688;
 }
 
@@ -78,7 +86,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 1rem;
+  height: 11.11%;
   background-color: #a7cd0f;
 }
 
@@ -87,8 +95,8 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 1rem;
-  height: 0.25rem;
+  bottom: 11.11%;
+  height: 2.78%;
   background-color: white;
 }
 
@@ -98,85 +106,92 @@ body {
 }
 
 .yellow-circle-lg {
-  width: 6rem;
-  height: 6rem;
+  width: 10%;
+  padding-bottom: 10%;
   background-color: #ffd700;
-  top: 20%;
-  left: 30%;
+  top: 15%;
+  left: 20%;
   z-index: 1;
 }
 
 .pink-circle-sm-1 {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 4%;
+  padding-bottom: 4%;
   background-color: #ff9999;
-  top: 10%;
-  left: 15%;
-  z-index: 1;
+  top: 3.33%;
+  left: 5%;
 }
 
 .pink-circle-sm-2 {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 4%;
+  padding-bottom: 4%;
   background-color: #ff9999;
-  bottom: 20%;
-  left: 5%;
-  z-index: 1;
+  bottom: 6.67%;
+  left: 1.67%;
+}
+
+.pink-circle-sm-3 {
+  width: 4%;
+  padding-bottom: 4%;
+  background-color: #ff9999;
+  bottom: 62%;
+  left: 41.67%;
 }
 
 .pink-circle-lg {
-  width: 8rem;
-  height: 8rem;
+  width: 10%;
+  padding-bottom: 10%;
   background-color: #ff9999;
-  top: -50%;
-  left: 40%;
-  z-index: 3;
+  top: -25%;
+  left: 28%;
+  z-index: 1;
 }
 
 .yellow-circle-sm {
-  width: 2rem;
-  height: 2rem;
+  width: 4%;
+  padding-bottom: 4%;
   background-color: #ffd700;
-  top: 40%;
-  left: 20%;
-  z-index: 1;
+  top: 26.67%;
+  left: 16.67%;
 }
 
 .mountain {
   position: absolute;
   width: 0;
   height: 0;
-  z-index: 2;
+  z-index: 4;
+  bottom: 13.89%;
 }
 
 .mountain-dark {
-  border-left: 15rem solid transparent;
-  border-right: 15rem solid transparent;
-  border-bottom: 25rem solid #006400;
-  right: 20%;
-  bottom: 1.25rem;
+  border-left: 15vw solid transparent;
+  border-right: 15vw solid transparent;
+  border-bottom: 40vw solid #006400; /* Increased height */
+  right: 15%;
+  bottom: 13.89%;
 }
 
 .mountain-light {
-  border-left: 12rem solid transparent;
-  border-right: 12rem solid transparent;
-  border-bottom: 20rem solid #90ee90;
-  right: 5%;
-  bottom: 1.25rem;
+  border-left: 12vw solid transparent;
+  border-right: 12vw solid transparent;
+  border-bottom: 30vw solid #90ee90; /* Increased height */
+  right: 2%;
+  bottom: 13.89;
 }
 
 .people-row {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 13.89%;
   left: 5%;
   display: flex;
-  gap: 0.5rem;
-  z-index: 4;
+  gap: 1%;
+  width: 50%;
+  z-index: 5;
 }
 
 .person {
-  width: 1.5rem;
-  height: 2.5rem;
+  width: 4%;
+  padding-bottom: 6%;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -234,10 +249,24 @@ button {
   font-size: 1rem;
   transition: background-color 0.3s ease;
   align-self: flex-start;
+  height: 3rem;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 button:hover {
   background: #00796b;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+  }
 }
 
 @media (max-width: 768px) {
@@ -245,11 +274,30 @@ button:hover {
     padding: 1rem;
   }
 
+  .form-section {
+    padding: 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
   .container {
     max-width: 100%;
   }
 
-  .form-section {
-    padding: 1rem;
+  .form-section h2 {
+    font-size: 1.2rem;
   }
-}
+
+  input,
+  button {
+    font-size: 0.9rem;
+  }
+
+  button {
+    height: 2.5rem;
+    min-width: 120px;
+  }
